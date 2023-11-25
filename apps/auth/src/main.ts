@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AuthModule } from './auth.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { AUTH } from '@app/common';
+import { AUTH_PACKAGE_NAME } from '@app/common';
 import { join } from 'path';
 
 async function bootstrap() {
@@ -11,7 +11,7 @@ async function bootstrap() {
       transport: Transport.GRPC,
       options: {
         protoPath: join(__dirname, '../auth.proto'),
-        package: AUTH,
+        package: AUTH_PACKAGE_NAME,
       },
     },
   );
